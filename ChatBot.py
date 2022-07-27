@@ -4,13 +4,14 @@ import random
 import csv
 import os
 import sys
-sys.path.insert(1, "Python-Learn/Projects/Ai learn")
+sys.path.insert(1, "Chat_Bot")
 import main
-sys.path.insert(2, "Python-Learn\\Projects\\Get_Song\\")
+sys.path.insert(2, "Get_Song")
 import Get_song_driver
+from dotenv import load_dotenv
 
 
-API_KEY = '5548903247:AAErSygnNZ4Wc0zLFWBRdA7qpp3D3fsxpOw'
+API_KEY = "Your Api Key Here"
 bot = telebot.TeleBot(API_KEY)
 
 
@@ -56,10 +57,6 @@ def echo_message(message):
         sent = bot.send_message(message.chat.id, 'What Song You wanna hear? ')
         bot.register_next_step_handler(sent, hello)
         
-    with open("Python-Learn\Projects\Telegram chat\Text.csv", 'a') as f:
-        write = csv.writer(f)
-        write.writerow([message.chat.first_name,message.text])
-        
 
 
 @bot.message_handler(commands=['Song'])
@@ -67,7 +64,7 @@ def start(message):
   sent = bot.send_message(message.chat.id, ' ')
   bot.register_next_step_handler(sent, hello)
 
-def hello(message):
+def Get_Song(message):
     text = Get_song_driver.Song(message.text)
     bot.send_message(message.chat.id, text)
     
