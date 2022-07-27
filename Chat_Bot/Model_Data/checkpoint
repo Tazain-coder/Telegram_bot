@@ -1,0 +1,2 @@
+model_checkpoint_path: "D:\\python\\Telegram_bot\\Chat_Bot\\Model_Data\\model.tflearn"
+all_model_checkpoint_paths: "D:\\python\\Telegram_bot\\Chat_Bot\\Model_Data\\model.tflearn"
